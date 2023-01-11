@@ -1,3 +1,4 @@
-torch==1.8.1
-torchvision==0.9.1
-coremltools==5.0b1
+torch==1.12.1
+torchvision==0.13.1
+coremltools==6.1
+numpy==1.23.1

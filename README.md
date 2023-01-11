@@ -12,12 +12,34 @@ Our export script is written to have input size fixed. The output coreml models 
 
 The following procedures were used to generate our CoreML models.
 
-1. Install dependencies
+1. Clone the repository
+```sh
+git clone https://github.com/PeterL1n/RobustVideoMatting.git
+cd RobustVideoMatting
+```
+
+2. Install [Homebrew](https://brew.sh)
+
+3. Install pyenv and the correct version of python
+```sh
+brew install pyenv
+pyenv install $(cat .python-version)
+```
+
+4. Create and activate a virtual environment
+```sh
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+5. Install dependencies
 ```sh
 pip install -r requirements.txt
 ```
 
-2. Use the export script. You can change the `resolution` and `downsample-ratio` to fit your need. You can change quantization to one of `[8, 16, 32]`, denoting `int8`, `fp16`, and `fp32`.
+6. Download [rvm_mobilenetv3.pth](https://github.com/PeterL1n/RobustVideoMatting/releases/download/v1.0.0/rvm_mobilenetv3.pth) from [GitHub](https://github.com/PeterL1n/RobustVideoMatting#download)
+
+7. Use the export script. You can change the `resolution` and `downsample-ratio` to fit your need. You can change quantization to one of `[8, 16, 32]`, denoting `int8`, `fp16`, and `fp32`.
 ```sh
 python export_coreml.py \
     --model-variant mobilenetv3 \
